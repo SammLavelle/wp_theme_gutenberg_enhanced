@@ -1,0 +1,112 @@
+/*added by gutenberg editor*/
+/* -- gutenberg editor styles -- */
+.has-s-font-size, .has-s-font-size :is(li, strong, a){
+    font-size: var(--step--1);
+}
+.has-default-font-size, .has-default-font-size  :is(li, strong, a){
+    font-size: var(--step-0);
+}
+.has-m-font-size, .has-m-font-size :is(li, strong, a){
+    font-size: var(--step-1);
+}
+.has-l-font-size, .has-l-font-size :is(li, strong, a){
+    font-size: var(--step-2);
+}
+.has-xl-font-size, .has-xl-font-size :is(li, strong, a){
+    font-size: var(--step-3);
+}
+.has-xxl-font-size, .has-xxl-font-size :is(li, strong, a){
+    font-size: var(--step-4);
+}
+.has-xxxl-font-size, .has-xxxl-font-size :is(li, strong, a){
+    font-size: var(--step-5);
+}
+.has-xxxxl-font-size, .has-xxxxl-font-size :is(li, strong, a){
+    font-size: var(--step-7);
+}
+
+/*colours set in functions/setup.php*/
+$colors: 
+primary,
+secondary,
+tertiary,
+white, 
+lgrey,
+dgrey,
+black;
+
+@each $color in $colors {
+	.has-#{$color}-background-color {
+		background-color: var(--color-#{$color});
+	}
+	.has-#{$color}-color {
+		color: var(--color-#{$color});
+		svg{
+			fill: var(--color-#{$color});
+		}
+		a:not(.wp-block-button__link){
+			color: inherit;
+		}
+	}	
+}
+
+/* ----- UTILITIES ----- */
+
+/*classes can be added to gutenberg blocks*/
+.justify-left {
+	margin-left: 0;
+}
+.justify-right {
+	margin-right: 0;
+	margin-left: auto;
+}
+.justify-center {
+	margin-right: auto;
+	margin-left: auto;
+}
+.has-text-align-center{
+	margin-left: auto;
+	margin-right: auto;
+}
+.col {
+	column-gap: var(--space-gap);
+	max-width: var(--width-wide-inset)!important;
+	margin-left: auto!important;
+	margin-right: auto!important;
+}
+.col li {
+	break-inside: avoid-column;
+}
+.col-2 {
+	columns: 2;
+}
+.col-3 {
+	columns: 3;
+}
+.col-4 {
+	columns: 4;
+}
+@media(max-width:  1024px) {
+	.col-2 {
+		columns: 1;
+	}
+	.col-3 {
+		columns: 2;
+	}
+	.col-4 {
+		columns: 3;
+	}
+}
+@media(max-width:  768px) {
+	.col-3 {
+		columns: 1;
+	}
+	.col-4 {
+		columns: 2;
+	}
+}
+@media(max-width:  480px) {
+	.col-4 {
+		columns: 1;
+	}
+}

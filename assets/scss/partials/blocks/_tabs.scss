@@ -1,0 +1,102 @@
+
+
+/* -- TABBED CONTENT -- */
+/* taken from Heydon Pickering's Inclusive Components*/
+.no-js .tab-block section{
+    margin-top: var(--space-gap-small);
+    border-top: 1px solid var(--color-primary);
+    padding-top: var(--space-panel-padding-tb);
+    scroll-margin-top: 20px;
+}
+.no-js .tab-block section:first-of-type{
+    border-top: none;
+}
+.js .tab-block ul,
+.js .tab-block li{
+    margin-bottom: 0;
+}
+[role="tablist"] {
+    padding: 0;
+    position: relative;
+      top: 2px;
+      
+  }
+  [role="tablist"] a{
+    border: 2px solid var(--color-primary);
+  }
+  
+  [role="tablist"] li, [role="tablist"] a {
+    display: inline-block;
+    outline: none!important;
+  }
+  
+  [role="tablist"] a {
+    text-decoration: none!important;
+    padding: var(--space-xs) var(--space-b);
+    border-bottom: none!important;
+    background-color: var(--color-primary);
+    color: white!important;
+    position: relative;
+  }
+ 
+  [role="tablist"] a:hover{
+    background-color: #ffffff!important;
+    color: var(--color-primary)!important;
+      
+  }
+  [role="tablist"] a:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: var(--color-primary)
+}
+  
+  [role="tablist"] [aria-selected]{
+    background-color: #ffffff!important;
+    border: 2px solid var(--color-primary)!important;
+    border-bottom:none!important;
+
+    color: var(--color-primary)!important;
+
+  }
+  [role="tablist"] [aria-selected]:before{
+    background-color: var(--color-white);
+    height: 3px;
+    bottom: -1px;
+  }
+  
+  [role="tabpanel"] {
+    border: 2px solid var(--color-primary);
+    padding: var(--space-panel-padding-small);
+  }
+  
+  
+  @media (max-width: 768px) {
+    [role="tablist"]{
+        border-top: 2px solid var(--color-primary);
+        top: 0px;
+    }
+    [role="tablist"] a:before{
+        background-color: white;
+        height: 1px;
+    }
+    [role="tablist"] li:last-child a:before{
+        display: none;
+    }
+    
+    [role="tablist"] li, [role="tablist"] a , [role="tablist"] [aria-selected] {
+      display: block;
+      border-top: none!important;
+      border-bottom: none;
+    }
+    
+    [role="tablist"] [aria-selected]::after {
+      content: '\0020⬅';
+      color: var(--color-primary);
+    }
+    
+    
+  }

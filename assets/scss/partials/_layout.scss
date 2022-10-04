@@ -1,0 +1,215 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+/* ------- page layouts ------- */
+.layout--has-sidebar{
+    display: grid;
+    grid-template-areas: "header header" "main aside" "footer footer";
+    grid-template-columns: 8fr 4fr;
+    row-gap: var(--space-gutter);
+}
+$areas: 
+header,
+main,
+aside,
+footer;
+
+@each $area in $areas {
+	.layout__#{$area}{
+		grid-area: #{$area};
+	}
+}
+
+/* ------- page structure ------- */
+.container{
+    margin: 0 auto;
+}
+.container--full{
+    width: 100%;
+}
+.container--wide{
+    width: var(--width-full-inset);
+    max-width: var(--width-wide-inset);
+}
+
+/* ------- vertical spacing ------- */
+
+.wrapper > div:not(.wp-block-buttons) + div:not(.wp-block-buttons){
+    margin-top: var(--space-margin-row);
+    margin-bottom: 0;
+}
+.wrapper > div.alignfull:is(.has-background, .wp-block-cover, .wp-block-columns) + div.alignfull:is(.has-background, .wp-block-cover, .wp-block-columns),
+.wrapper > div.alignwide:is(.has-background, .wp-block-cover) + div.alignwide:is(.has-background, .wp-block-cover){
+    margin-top: 0;
+}
+.wrapper > div.alignfull:is(.wp-block-group.has-background, .wp-block-cover),
+.wrapper > .wp-block-columns.alignfull > .wp-block-column,
+.wrapper > .wp-block-media-text.alignfull > .wp-block-media-text__content {
+    padding-top: var(--space-margin-row);
+    padding-bottom: var(--space-margin-row);
+}
+.wp-block-columns{
+    margin-bottom: 0;
+}
+.wrapper > *:last-child:not(.alignfull.has-background){
+    margin-bottom: var(--space-margin-row);
+}
+
+.wrapper > :is(.wp-block-buttons, .wp-block-quote):first-child,
+.wrapper > :is(div, figure) + :is(.wp-block-buttons, .wp-block-quote, h1, h2, h3, h4, h5, h6, p, ul, ol){
+	margin-top: var(--space-margin-row);
+}
+
+:is(h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote) + :is(div, figure){
+    margin-top: var(--space-margin-heading-div);
+}
+
+:is( p, ul, ol, blockquote) + :is(div){
+    margin-top: var(--space-margin-);
+}
+
+
+/* ------- block widths ------- */
+.wrapper > *,
+.wrapper > .wp-block-group.alignfull > .wp-block-group__inner-container > div:not(.wp-block-buttons),
+.wrapper > .wp-block-cover.alignfull > .wp-block-cover__inner-container > div:not(.wp-block-buttons){
+    width: var(--width-full-inset);
+    max-width: var(--width-wide-inset);
+    margin-left: auto;
+    margin-right: auto;
+    &.alignfull{
+        width: var(--width-full);
+        max-width: var(--width-full-inset);
+        &.has-background, &.wp-block-cover{
+            max-width: var(--width-full);
+        }
+    }
+    &:is(p, li){
+        max-width: var(--width-text-inset);
+        margin-left: var(--space-gutter-alignment);
+        &.has-text-align-center{
+            margin-left: auto;
+        }
+    }
+}
+
+/* ------- gutenberg block widths ------- */
+
+/* ------- gutenberg covers ------- */
+.wp-block-cover{
+    padding-left: 0;
+    padding-right: 0;
+}
+.wrapper > .wp-block-cover.alignfull{
+    .wp-block-cover__inner-container > *:not(div), 
+    .wp-block-cover__inner-container > .wp-block-buttons{
+        width: var(--width-full-inset);
+        max-width: var(--width-text-inset);
+        margin-left: var(--space-gutter-alignment);
+    }
+    .wp-block-cover__inner-container > .wp-block-group.has-background{
+        width: var(--width-full-inset);
+        max-width: var(--width-text-inset);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .wp-block-cover__inner-container > *:not(div).has-text-align-center,
+    .wp-block-cover__inner-container > .wp-block-buttons.is-content-justification-center{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    &.has-custom-content-position{
+        .wp-block-cover__inner-container{
+            max-width: calc(var(--width-wide-inset) /2);
+            margin-left: auto;
+            margin-right: auto;
+            *:not(div),
+            .wp-block-buttons {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+        &.is-position-center-right,  
+        &.is-position-top-right,  
+        &.is-position-bottom-right{
+            .wp-block-cover__inner-container{
+                margin-left: auto;
+                margin-right: var(--space-gutter-alignment);
+            }
+        }
+        &.is-position-center-left,  
+        &.is-position-top-left, 
+        &.is-position-bottom-left { 
+            .wp-block-cover__inner-container{
+                margin-right: auto;
+                margin-left: var(--space-gutter-alignment);
+            }
+        }
+    }
+}
+
+/* ------- gutenberg groups ------- */
+.wrapper > .wp-block-group.alignfull{
+    .wp-block-group__inner-container > *:not(div), 
+    .wp-block-group__inner-container > .wp-block-buttons{
+        width: var(--width-full-inset);
+        max-width: var(--width-text-inset);
+        margin-left: var(--space-gutter-alignment);
+    }
+    .wp-block-group__inner-container > *:not(div).has-text-align-center,
+    .wp-block-group__inner-container > .wp-block-buttons.is-content-justification-center{
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* ------- gutenberg columns ------- */
+.wrapper > .wp-block-columns.alignfull{
+    max-width: var(--width-full);
+    gap: 0;
+    .wp-block-column{
+        padding-left: var(--space-gutter);
+        padding-right: var(--space-gutter);
+    }
+    > .wp-block-column:first-child{
+        padding-left: var(--space-gutter-alignment);
+        padding-right: var(--space-gutter);
+    }
+    > .wp-block-column:last-child{
+        padding-right: var(--space-gutter-alignment);
+        padding-left: var(--space-gutter);
+    }
+}
+.wp-block-column.has-background{
+    padding: var(--space-panel-padding);
+}
+
+/* ------- gutenberg media & text ------- */
+.wp-block-media-text{
+    gap: var(--space-gap);
+    .wp-block-media-text__content{
+        padding: 0;
+    }
+    &.has-background{
+        gap: 0;
+        .wp-block-media-text__content{
+            padding: var(--space-panel-padding);
+        }
+    }
+}
+.wrapper > .wp-block-media-text.alignfull{
+    > .wp-block-media-text__content{
+        padding-right: var(--space-gutter-alignment);
+        padding-left: var(--space-gutter);
+    }
+    &.has-media-on-the-right > .wp-block-media-text__content{
+        padding-left: var(--space-gutter-alignment);
+        padding-right: var(--space-gutter);
+    }
+}
+
+.wp-block-group.has-background:not(.alignfull){
+    padding: var(--space-panel-padding);
+}

@@ -1,0 +1,30 @@
+
+
+/* -- CONTACT FORMS -- */
+/*layout*/
+.wpcf7-list-item{
+    margin-left: 0;
+    display: block;
+}
+
+.wpcf7 .row{
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    label{
+        flex-grow: 1;
+    }
+}
+.wpcf7-form-control-wrap{
+    margin-top: 2px;
+    display: block;
+   
+}
+
+.wpcf7-not-valid{
+    border: 1px solid var(--color-error);
+}
+.wpcf7-not-valid-tip{
+    margin-top: 5px;
+    color: var(--color-error);
+}

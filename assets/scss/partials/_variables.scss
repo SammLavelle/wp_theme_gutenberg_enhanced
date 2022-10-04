@@ -1,0 +1,141 @@
+/* ----- VARIABLES ----- */
+:root {
+    
+    --width-wide: 90rem; /*16px base == 1440px*/
+    --width-text: 60rem; /*16px base == 960px*/
+
+    /* @link https://utopia.fyi/type/calculator?c=320,16,1.067,1140,16,1.2,7,1,&s=0.5,2|3|4|5|6|8,s-l */
+
+    --step--1: clamp(0.83rem, calc(0.98rem + -0.20vw), 0.94rem);
+    --step-0: clamp(1.00rem, calc(1.00rem + 0.00vw), 1.00rem);
+    --step-1: clamp(1.07rem, calc(1.01rem + 0.26vw), 1.20rem);
+    --step-2: clamp(1.14rem, calc(1.02rem + 0.59vw), 1.44rem);
+    --step-3: clamp(1.22rem, calc(1.01rem + 1.00vw), 1.73rem);
+    --step-4: clamp(1.30rem, calc(0.99rem + 1.52vw), 2.07rem);
+    --step-5: clamp(1.38rem, calc(0.95rem + 2.16vw), 2.49rem);
+    --step-6: clamp(1.48rem, calc(0.89rem + 2.95vw), 2.99rem);
+    --step-7: clamp(1.57rem, calc(0.79rem + 3.92vw), 3.58rem);
+
+    --font-line-height-body: 1.5em;
+    --font-line-height-heading: 1.3em;
+    
+    --button-padding: 12px 30px;
+    --button-font: var(--font-body);
+    --button-size: var(--step-0);
+    --button-font-weight: var(--font-weight-medium);
+    --button-case: inherit;
+    --button-border: 2px solid ;
+    --button-padding-with-border: 13px 23px;
+    --button-border-radius: 0;
+}
+
+
+/* -- SPACING --  @link https://utopia.fyi/space/calculator?c=320,10,1.125,1140,20,1.2,8,1,&s=0.5,2|3|4|5|6|8,s-l */
+
+:root {
+    --fluid-min-width: 320;
+    --fluid-max-width: 1140;
+    --fluid-screen: 100vw;
+    --fluid-bp: calc((var(--fluid-screen) - var(--fluid-min-width) / 16 * 1rem) / (var(--fluid-max-width) - var(--fluid-min-width)));
+}
+
+@media screen and (min-width: 1140px) {
+    :root {
+        --fluid-screen: calc(var(--fluid-max-width) * 1px);
+    }
+}
+
+:root {
+    --fc-xs-min: var(--fc-s-min) * 0.5;
+    --fc-xs-max: var(--fc-s-max) * 0.5;
+    --fc-s-min: var(--f-0-min, 10);
+    --fc-s-max: var(--f-0-max, 20);
+    --fc-m-min: var(--fc-s-min) * 2;
+    --fc-m-max: var(--fc-s-max) * 2;
+    --fc-l-min: var(--fc-s-min) * 3;
+    --fc-l-max: var(--fc-s-max) * 3;
+    --fc-xl-min: var(--fc-s-min) * 4;
+    --fc-xl-max: var(--fc-s-max) * 4;
+    --fc-2xl-min: var(--fc-s-min) * 5;
+    --fc-2xl-max: var(--fc-s-max) * 5;
+    --fc-3xl-min: var(--fc-s-min) * 6;
+    --fc-3xl-max: var(--fc-s-max) * 6;
+    --fc-4xl-min: var(--fc-s-min) * 8;
+    --fc-4xl-max: var(--fc-s-max) * 8;
+
+    /* T-shirt sizes */
+    --space-xs: calc(((var(--fc-xs-min) / 16) * 1rem) + (var(--fc-xs-max) - var(--fc-xs-min)) * var(--fluid-bp));
+    --space-a: calc(((var(--fc-s-min) / 16) * 1rem) + (var(--fc-s-max) - var(--fc-s-min)) * var(--fluid-bp)); /*20px*/
+    --space-b: calc(((var(--fc-m-min) / 16) * 1rem) + (var(--fc-m-max) - var(--fc-m-min)) * var(--fluid-bp)); /*40px*/
+    --space-c: calc(((var(--fc-l-min) / 16) * 1rem) + (var(--fc-l-max) - var(--fc-l-min)) * var(--fluid-bp)); /*60px*/
+    --space-d: calc(((var(--fc-xl-min) / 16) * 1rem) + (var(--fc-xl-max) - var(--fc-xl-min)) * var(--fluid-bp)); /*80px*/
+    --space-e: calc(((var(--fc-2xl-min) / 16) * 1rem) + (var(--fc-2xl-max) - var(--fc-2xl-min)) * var(--fluid-bp)); /*100px*/
+    --space-f: calc(((var(--fc-3xl-min) / 16) * 1rem) + (var(--fc-3xl-max) - var(--fc-3xl-min)) * var(--fluid-bp)); /*120px*/
+    --space-g: calc(((var(--fc-4xl-min) / 16) * 1rem) + (var(--fc-4xl-max) - var(--fc-4xl-min)) * var(--fluid-bp)); /*160px*/
+
+    --space--a: calc(var(--space-a) * -1);
+    --space--b: calc(var(--space-b) * -1);
+    --space--c: calc(var(--space-c) * -1);
+    --space--d: calc(var(--space-d) * -1);
+
+}
+/*-- UNIVERSAL SPACING --*/
+:root{
+    /*left & right spacing*/
+    --space-gutter: var(--space-b); /* space between edge and content */
+   
+    --space-gap: var(--space-b); /* space between columns/cards, logo ticker */
+    --space-gap-small: 15px;
+
+
+    /*space between elements*/
+    --space-margin-heading-body: 1.5rem;
+    --space-margin-body: 1.5rem;
+    --space-margin-body-heading: 2rem;
+    --space-margin-heading-div: var(--space-b);
+
+    --space-panel-padding: var(--space-b); /*padding for panels and cards */
+    --space-panel-padding-small: var(--space-a); /*padding for panels and cards */
+
+    --width-full-inset: calc(100% - var(--space-gutter) * 2);
+    --width-wide: 90rem; /*16px base == 1440px*/
+    --width-wide-inset:  calc(var(--width-wide) - var(--space-gutter) * 2);
+    --width-text: 60rem; /*16px base == 960px -- max width for body text*/
+    --width-text-inset:  calc(var(--width-text) - var(--space-gutter) * 2);
+    --width-narrow: 640px;
+
+
+    /*other*/
+    --transition: 0.2s ease-in-out;
+
+    --color-error: #c10808;
+}
+.container--full{
+    --space-gutter-alignment: max(var(--space-gutter), calc((100vw - var(--width-wide-inset)) / 2));
+    --width-full: 100%;
+    --space-margin-row: var(--space-d); /* between top level elements */
+    --space-padding-row: var(--space-d); /* within elements with background colours */
+}
+.container--wide{
+    --space-gutter-alignment: var(--space-gutter);
+    --width-full: calc(100% - var(--space-gutter) * 2);
+    --space-margin-row: var(--space-c); /* between top level elements */
+    --space-padding-row: var(--space-b); /* within elements with background colours */
+}
+
+aside{
+    --space-margin-row: var(--space-b); /* between top level elements */
+}
+
+
+/* -- mixins  -- */
+/* cover image */
+@mixin cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+

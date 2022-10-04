@@ -1,0 +1,78 @@
+
+
+/* --  ACCORDION -- */
+.accordion{
+    border:  2px solid var(--color-primary);
+    overflow:  hidden;
+    margin-bottom:  var(--space-gap-small);
+    border-bottom:  none;
+}
+.accordion__heading h2, .accordion__heading h3, .accordion__heading h4{
+    font-size:  var(--step-2);
+   
+    
+}
+.accordion__heading{
+    padding:  var(--space-panel-padding-small) var(--space-d) var(--space-panel-padding-small) var(--space-panel-padding-small); ;
+    position:  relative;
+    transition:  var(--transition);
+    width:  100%;
+    text-align:  left;
+    background-color:  white;
+    -webkit-appearance:  none;
+    box-shadow: none;
+    border: none!important;
+    border-bottom:  2px solid var(--color-primary)!important;
+    color: var(--color-text);
+}
+.accordion__heading *{
+    color: var(--color-text);
+    &:last-child{
+        margin-bottom: 0;
+    }
+}
+.no-js .accordion__heading{
+    background-color:  var(--color-primary);
+}
+.no-js .accordion__heading *{
+    color: var(--color-white);
+}
+.accordion__heading:before{
+    content: '\f345';
+    font-family: 'dashicons';
+    position:  absolute;
+    right:  5px;
+    font-size: var(--step-4);
+    color:  var(--color-text);
+    transition:  var(--transition);
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.js .accordion__heading:hover,
+.js .accordion__heading:focus-visible{
+    cursor:  pointer;
+    background-color:  var(--color-primary);
+}
+.js .accordion__heading:hover *, 
+.js .accordion__heading:focus-visible *{
+    color:  white;
+}
+.js .accordion__heading:hover:before, 
+.js .accordion__heading:focus-visible:before{
+    color:  white;
+}
+.js .accordion__heading[aria-expanded="true"]:before{
+    transform:  translateY(-50%) rotate(90deg);
+}
+.accordion__main{
+    padding:  var(--space-panel-padding-small);
+    border-bottom : 2px solid var(--color-primary)
+}
+.js .accordion__main{ 
+    display: none;
+}
+.js .accordion__main.open{
+    display: block;
+}
