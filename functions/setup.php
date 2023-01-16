@@ -79,7 +79,7 @@ add_action('wp_before_admin_bar_render', 'mytheme_admin_bar_render');
 /* ----- Enqueue stylesheet  & js ----- */
 function enqueue_scripts_styles()
 {
-    wp_enqueue_style('b9-css', get_template_directory_uri() . '/assets/css/style.min.css');
+    wp_enqueue_style('custom-css', get_template_directory_uri() . '/assets/css/style.min.css');
     wp_enqueue_script('functions-js', get_template_directory_uri() . '/assets/js/functions.js', array(), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts_styles');
